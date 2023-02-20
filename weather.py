@@ -52,7 +52,7 @@ def home_page():
     "/content/api/v1/integration/generate",
     methods=["POST"],
 )
-def joke_endpoint():
+def weather_endpoint():
     json_data = request.get_json()
 
     if json_data.get("token") is None:
@@ -81,7 +81,7 @@ def joke_endpoint():
     result = {
         "requester_name": requester_name,
         "timestamp": weather['forecast']['forecastday'][0]['hour'][12]['time'],
-        "loation": location,
+        "location": location,
         "date": date,
         "weather": {
             "temp_c": weather['forecast']['forecastday'][0]['hour'][12]['temp_c'],
